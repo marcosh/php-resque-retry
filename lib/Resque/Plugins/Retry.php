@@ -66,7 +66,7 @@ class Retry {
 		$retryDelay = $this->retryDelay($job);
 		
 		$queue = $job->queue;
-		$class = $job->getClass();
+		$class = get_class($job->getInstance());
 		$arguments = $job->getArguments();
 
 		$retryingAt = time() + $retryDelay;
